@@ -6,8 +6,12 @@ Rest API implementation on Laravel 7.0.
 PHP 7.2.5+
 
 # Installation
-    php artisan migrate:refresh
-    php artisan db:seed
+    1. cd /path/to/the/laravel-rest/
+    2. cp .env.example .env
+    3. *edit the .env file*
+    4. composer install
+    5. php artisan migrate:refresh
+    6. php artisan db:seed
 
 # Launch
     php artisan serve
