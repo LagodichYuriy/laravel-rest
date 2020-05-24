@@ -1,7 +1,8 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
+use App\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+
+Route::get('users', function ()
+{
+	return User::all();
 });
+
+Route::get('users/{id}', function ($id)
+{
+	return User::find($id);
+});
+
+Route::get   ('reviews',          'ReviewController@index');
+Route::get   ('reviews/{review}', 'ReviewController@show');
+Route::post  ('reviews',          'ReviewController@store');
+Route::put   ('reviews/{review}', 'ReviewController@update');
+Route::delete('reviews/{review}', 'ReviewController@delete');
